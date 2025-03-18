@@ -1,8 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: 1280px;      /* Limits the container's width */
+  margin: 0 auto;         /* Centers the container horizontally */
   padding: 2rem;
-  text-align: center;
+  /* Optional: Adding a border can help you visualize the container's boundaries */
+  border: 2px solid red;  
 }
 
 .logo {
