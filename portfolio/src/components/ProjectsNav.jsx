@@ -1,6 +1,6 @@
 import React from "react";
 
-const Projects = () => {
+const ProjectsNav = () => {
   return (
     <section id="projects" style={{ textAlign: "center" }}>
       <h2>Projects</h2>
@@ -13,4 +13,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsNav;
