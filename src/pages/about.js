@@ -1,6 +1,9 @@
-// pages/about.js
-import About from "../pages/About"; // Adjust the path if you move About.jsx to components
-
-export default function AboutPage() {
-  return <About />;
+// src/pages/about.js
+export default function About() {
+  return (
+    <div>
+      <h1>About Me</h1>
+      <p>This is my about page.</p>
+    </div>
+  );
 }
