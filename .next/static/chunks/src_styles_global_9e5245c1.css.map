@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/junan/Documents/Github/mypage/src/styles/global.css"],"sourcesContent":["body {\n    font-family: Arial, sans-serif;\n    text-align: center;\n  }\n  \n  nav {\n    background-color: #333;\n    padding: 1rem;\n  }\n  \n  nav h1 {\n    color: white;\n  }\n  \n  ul {\n    list-style-type: none;\n    padding: 0;\n  }\n  \n  ul li {\n    display: inline;\n    margin: 0 15px;\n  }\n  \n  ul li a {\n    color: white;\n    text-decoration: none;\n  }\n  "],"names":[],"mappings":"AAAA;;;;;AAKE;;;;;AAKA;;;;AAIA;;;;;AAKA;;;;;AAKA","debugId":null}}]
+}
