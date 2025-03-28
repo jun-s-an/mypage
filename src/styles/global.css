@@ -1,29 +1,111 @@
+/* 
+   Adapted from your existing CSS 
+   :contentReference[oaicite:0]{index=0}
+   Now includes prefers-color-scheme for automatic Dark Mode 
+*/
+
+:root {
+  /* Base colors (Light Mode by default) */
+  --bg-color: #f7f7f8;
+  --text-color: #333333;
+  
+  /* Accent colors */
+  --accent-color: #f7df1e;
+  --accent-alt: #fde84e;
+
+  /* Gradient for headers or buttons */
+  --header-gradient: linear-gradient(90deg, var(--accent-color), var(--accent-alt));
+
+  /* Additional optional background for cards or sections */
+  --card-bg-color: #ffffff;
+}
+
+/* 
+   Dark Mode overrides using prefers-color-scheme.
+   This will automatically apply if a user has dark mode set at the OS/browser level.
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode base colors */
+    --bg-color: #202123;
+    --text-color: #f7f7f8;
+
+    /* Adjust the accents if you want them a bit subtler in dark mode */
+    --accent-color: #f7df1e;
+    --accent-alt: #fde84e;
+
+    /* A darker card background */
+    --card-bg-color: #2a2b2d;
+
+    /* A dark gradient for headers or buttons */
+    --header-gradient: linear-gradient(90deg, var(--accent-color), var(--accent-alt));
+  }
+}
+
+/* ------------ Global Styles ------------ */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  nav {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  nav h1 {
-    color: white;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+
+  /* Smooth color transitions when switching dark/light modes */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header with the existing gradient */
+header {
+  background: var(--header-gradient);
+  padding: 1rem;
+  color: #202123;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+/* Links with accent color */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-alt);
+}
+
+/* Example button styling */
+.button {
+  background: var(--header-gradient);
+  border: none;
+  color: #202123;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: var(--accent-alt);
+}
+
+/* Optional card/section styling */
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* Smooth transitions for background changes in dark mode */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.main-nav .nav-link {
+  color: #1e86ff; /* Example link color */
+  text-decoration: none;
+}
+
+.main-nav .nav-link:hover {
+  color: #003d99; /* Slightly darker on hover */
+}
