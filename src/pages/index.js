@@ -46,7 +46,7 @@ export default function Home({ readmeContent, updates }) {
         </div>
       </div>
       <div className="mt-8">
-        <h3 className="text-xl font-semibold mb-2">What's New</h3>
+        <h3 className="text-xl font-semibold mb-2">What&apos;s New</h3>
         {updates.map((update, index) => (
           <p key={index}><strong>{update.date}:</strong> {update.content}</p>
         ))}
