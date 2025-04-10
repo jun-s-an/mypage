@@ -10,16 +10,13 @@ export default function Layout({ children, title }) {
         <meta name="description" content="My portfolio site" />
       </Head>
 
-
       <header>
-        <h1>준</h1>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <h1>준</h1>
+        </Link>
         <nav className="main-nav" style={{ marginTop: '0rem' }}>
-          <Link href="/" className="nav-link">Home</Link>
-          {' | '}
           <Link href="/about" className="nav-link">About</Link>
-          {' | '}
           <Link href="/projects" className="nav-link">Projects</Link>
-          {' | '}
           <Link href="/life" className="nav-link">인생(Life)</Link>
         </nav>
       </header>
