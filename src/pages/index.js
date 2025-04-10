@@ -24,73 +24,60 @@ export async function getStaticProps() {
 export default function Home({ updates }) {
   return (
     <Layout title="Home">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Hero Section */}
+      <div className="grid-container">
+        <div className="grid grid-2-columns">
+          {/* Left Column */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            className="grid-item"
           >
-            <div className="flex flex-col items-center md:items-start space-y-6">
-              <motion.img 
-                whileHover={{ scale: 1.05 }}
+            <div className="prose prose-lg max-w-none">
+              <h1 className="text-4xl font-bold text-gray-900">About Me</h1>
+              <p>Welcome to my personal website! I'm passionate about technology and always eager to learn and share knowledge. Feel free to explore my projects and get in touch.</p>
+            </div>
+            <div className="profile-section">
+              <img 
                 src="/assets/profile.jpg" 
                 alt="Profile Picture" 
-                className="w-64 h-64 rounded-full object-cover shadow-xl"
+                className="profile-image"
               />
-              <div className="flex space-x-6">
-                <motion.a 
-                  whileHover={{ scale: 1.1 }}
+              <div className="social-links">
+                <a 
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform duration-200"
                 >
-                  <img src="/assets/linkedin-icon.svg" alt="LinkedIn" className="w-10 h-10" />
-                </motion.a>
-                <motion.a 
-                  whileHover={{ scale: 1.1 }}
+                  <img src="/assets/linkedin-icon.svg" alt="LinkedIn" className="social-icon" />
+                </a>
+                <a 
                   href="https://github.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-transform duration-200"
                 >
-                  <img src="/assets/github-icon.svg" alt="GitHub" className="w-10 h-10" />
-                </motion.a>
+                  <img src="/assets/github-icon.svg" alt="GitHub" className="social-icon" />
+                </a>
               </div>
             </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <h1 className="text-4xl font-bold text-gray-900">About Me</h1>
-              <div className="prose prose-lg max-w-none">
-                <p>Welcome to my personal website! I'm passionate about technology and always eager to learn and share knowledge. Feel free to explore my projects and get in touch.</p>
-              </div>
-            </motion.div>
           </motion.div>
 
-          {/* Updates Section */}
+          {/* Right Column */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gray-50 rounded-xl p-8 shadow-sm"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="grid-item"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">What's New</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">What's New</h2>
             <div className="space-y-6">
               {updates.map((update, index) => (
                 <motion.div 
                   key={index}
                   whileHover={{ x: 5 }}
-                  className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500"
+                  className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500"
                 >
-                  <p className="text-gray-600 mb-1">{update.date}</p>
+                  <p className="text-gray-600 mb-2">{update.date}</p>
                   <p className="text-gray-900">{update.content}</p>
                 </motion.div>
               ))}

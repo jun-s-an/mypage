@@ -13,7 +13,7 @@ export default function Layout({ children, title }) {
 
       <header>
         <h1>준</h1>
-        <nav className="main-nav" style={{ marginTop: '1rem' }}>
+        <nav className="main-nav" style={{ marginTop: '0rem' }}>
           <Link href="/" className="nav-link">Home</Link>
           {' | '}
           <Link href="/about" className="nav-link">About</Link>
