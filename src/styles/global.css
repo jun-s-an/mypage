@@ -1,44 +1,56 @@
 /* 
-   Adapted from your existing CSS 
-   :contentReference[oaicite:0]{index=0}
-   Now includes prefers-color-scheme for automatic Dark Mode 
+   Sophisticated dark theme with refined yellow accents
 */
 
 :root {
   /* Base colors (Light Mode by default) */
-  --bg-color: #f7f7f8;
-  --text-color: #333333;
+  --bg-color: #f8f9fa;
+  --text-color: #2b2d42;
   
+  /* Refined yellow accent palette - more muted and sophisticated */
+  --yellow-50: #fff8e6;
+  --yellow-100: #fff1cc;
+  --yellow-200: #ffe9b3;
+  --yellow-300: #ffe299;
+  --yellow-400: #ffdb80;
+  --yellow-500: #ffd366;
+  --yellow-600: #ffcc4d;
+  --yellow-700: #ffc433;
+  --yellow-800: #ffbd1a;
+  --yellow-900: #ffb500;
+
+  /* Sophisticated dark theme palette */
+  --dark-50: #e6e8eb;
+  --dark-100: #ccd1d7;
+  --dark-200: #b3bac3;
+  --dark-300: #99a3af;
+  --dark-400: #808c9b;
+  --dark-500: #667587;
+  --dark-600: #4d5e73;
+  --dark-700: #33475f;
+  --dark-800: #1a304b;
+  --dark-900: #001937;
+
   /* Accent colors */
-  --accent-color: #f7df1e;
-  --accent-alt: #fde84e;
+  --accent-color: var(--yellow-500);
+  --accent-alt: var(--yellow-600);
+  --accent-dark: var(--dark-900);
 
   /* Gradient for headers or buttons */
-  --header-gradient: linear-gradient(90deg, var(--accent-color), var(--accent-alt));
+  --header-gradient: linear-gradient(135deg, var(--yellow-200), var(--yellow-400));
 
   /* Additional optional background for cards or sections */
   --card-bg-color: #ffffff;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-/* 
-   Dark Mode overrides using prefers-color-scheme.
-   This will automatically apply if a user has dark mode set at the OS/browser level.
-*/
+/* Dark Mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark Mode base colors */
-    --bg-color: #202123;
-    --text-color: #f7f7f8;
-
-    /* Adjust the accents if you want them a bit subtler in dark mode */
-    --accent-color: #f7df1e;
-    --accent-alt: #fde84e;
-
-    /* A darker card background */
-    --card-bg-color: #2a2b2d;
-
-    /* A dark gradient for headers or buttons */
-    --header-gradient: linear-gradient(90deg, var(--accent-color), var(--accent-alt));
+    --bg-color: #0a0a0a;
+    --text-color: #e6e6e6;
+    --card-bg-color: #141414;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -46,66 +58,145 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
   padding: 0;
-
-  /* Smooth color transitions when switching dark/light modes */
+  line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header with the existing gradient */
+/* Enhanced Header */
 header {
-  background: var(--header-gradient);
-  padding: 1rem;
-  color: #202123;
+  background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500));
+  padding: 2rem 1rem;
+  color: var(--dark-900);
   text-align: center;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Links with accent color */
-a {
-  color: var(--accent-color);
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Improved Navigation */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--dark-900);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--dark-900);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Links */
+a {
+  color: var(--dark-700);
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 a:hover {
-  color: var(--accent-alt);
+  color: var(--dark-900);
+  text-decoration: underline;
 }
 
-/* Example button styling */
+/* Card Styling */
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--yellow-100);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: var(--yellow-300);
+}
+
+/* Button Styling */
 .button {
-  background: var(--header-gradient);
+  background: linear-gradient(135deg, var(--yellow-300), var(--yellow-500));
   border: none;
-  color: #202123;
+  color: var(--dark-900);
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
-  background: var(--accent-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600));
 }
 
-/* Optional card/section styling */
-.card {
-  background-color: var(--card-bg-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-  /* Smooth transitions for background changes in dark mode */
-  transition: background-color 0.3s, box-shadow 0.3s;
+/* Main Content Area */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-.main-nav .nav-link {
-  color: #1e86ff; /* Example link color */
-  text-decoration: none;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--yellow-100);
+  color: var(--dark-700);
 }
 
-.main-nav .nav-link:hover {
-  color: #003d99; /* Slightly darker on hover */
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-nav {
+    gap: 1rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
 }
