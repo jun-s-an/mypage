@@ -28,8 +28,7 @@ export default function Layout({ children, title }) {
         {children}
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '1rem' }}>
-        <hr />
+      <footer style={{ textAlign: 'center', padding: '0.5rem' }}>
         <p>© 2025 My Name</p>
       </footer>
     </>
